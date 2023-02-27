@@ -209,6 +209,24 @@
             "quantity": 10,
             "price": 4.8,
             "type": "fruit"
+        },
+        "36": {
+            "name": "Shaftoli",
+            "quantity": 100,
+            "price": 5.4,
+            "type": "fruit"
+        },
+        "37": {
+            "name": "temir",
+            "quantity": 100,
+            "price": 5.4,
+            "type": "qozon"
+        },
+        "38": {
+            "name": "Sarvar",
+            "quantity": 1,
+            "price": 5.4,
+            "type": "tarvuz"
         }
     }
 }

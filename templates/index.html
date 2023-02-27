@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery</title>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Grocery List</h1>
+
+    <a href="http://127.0.0.1:5000/grocery">All Products</a>
+    <br>
+        {% for i in types %}
+            <a href="{{ url_for('all_grocery_by_type', type=i) }}">{{i}}</a>
+            <br>
+        {% endfor %}
+    <br>
+    
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Type</th>
+        </tr>
+
+        {% for item in items.all_products %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>${{ item.price }}</td>
+                <td>{{ item.type }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

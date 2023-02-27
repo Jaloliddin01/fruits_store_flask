@@ -2,7 +2,7 @@ import tinydb
 
 class GroceryDB:
     def __init__(self):
-        self.db = tinydb.TinyDB('fruitDB.json',indent=4, separators=(',', ': '))
+        self.db = tinydb.TinyDB('db.json',indent=4, separators=(',', ': '))
         self.table = self.db.table('grocery')
 
     def add(self, fruit: dict):
@@ -16,6 +16,13 @@ class GroceryDB:
     def all(self):
         '''Get all fruits from the database'''
         return self.table.all()
+
+    def get_all_types(self) -> list:
+        types = set()
+        for i in self.all():
+            if i['type'] not in types:
+                types.add(i['type'])
+        return types
     
     def get_by_type(self, type: str) -> list:
         '''Get all fruits of a specific type from the database
@@ -53,4 +60,6 @@ class GroceryDB:
         q = tinydb.Query()
         return self.table.search(q.price == price)
     
-    
+if __name__ == '__main__':
+    obj = GroceryDB()
+    print(obj.get_by_type('dairy'))
